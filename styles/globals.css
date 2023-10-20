@@ -1,0 +1,73 @@
+html,
+body,
+#__next {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.map {
+  position:absolute; 
+  top:0; 
+  bottom:0; 
+  width:100%;
+}
+.css-bbgsq2-MuiPaper-root-MuiCard-root {
+  border-radius: 1rem;
+}
+.css-vbvmdo-MuiPaper-root-MuiCard-root {
+  border-radius: 1rem;
+}
+.css-xsqe0f-MuiButtonBase-root-MuiButton-root {
+  border-radius: 1rem;
+}
+.ol-zoom {
+	top: 100px;
+	left: 50%;
+	margin-left: 48%;
+}
+
+.ol-control button {
+	display: block;
+	margin: 2px;
+	padding: 0;
+	color: rgb(60, 60, 60);
+	font-size: 1em;
+	font-weight: 700;
+	text-decoration: none;
+	text-align: center;
+	height: 2em;
+	width: 2em;
+	line-height: 0.em;
+	background-color: rgba(255, 255, 255, 0.7);
+	border: 1px solid gray;
+	border-radius: 0px;
+	float: right;
+}
+
+.ol-control button:focus,
+.ol-control button:hover {
+	text-decoration: none;
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.ol-zoom .ol-zoom-in {
+	border-radius: 0px 0px 0 0;
+}
+
+.ol-control,
+.ol-control:hover {
+	position: absolute;
+	background-color: transparent;
+	border-radius: 0px;
+	padding: 2px;
+}
+
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+	background: rgba(255,255,255,0.8);
+}

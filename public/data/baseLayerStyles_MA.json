@@ -1,0 +1,642 @@
+{
+   "Polygon": {
+     "Pob_Edific": [
+       {
+         "minValue": 0,
+         "maxValue": 35,
+         "color": "transparent",
+         "fill": "rgba(220,233,245,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 35,
+         "maxValue": 120,
+         "color": "transparent",
+         "fill": "rgba(192,216,240,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 120,
+         "maxValue": 275,
+         "color": "transparent",
+         "fill": "rgba(115,178,216,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 275,
+         "maxValue": 644,
+         "color": "transparent",
+         "fill": "rgba(41,121,185,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 644,
+         "maxValue": 1332,
+         "color": "transparent",
+         "fill": "rgba(8,48,107,1.0)",
+         "width": 0,
+         "unit": ""
+       }
+     ],
+     "RNT_HOG_19": [
+       {
+         "minValue": 0,
+         "maxValue": 23466,
+         "color": "transparent",
+         "fill": "rgba(247,252,245,1.0)",
+         "width": 0,
+         "unit": "€"
+       },
+       {
+         "minValue": 23466,
+         "maxValue": 27024,
+         "color": "transparent",
+         "fill": "rgba(201,234,194,1.0)",
+         "width": 0,
+         "unit": "€"
+       },
+       {
+         "minValue": 27024,
+         "maxValue": 30473,
+         "color": "transparent",
+         "fill": "rgba(123,199,124,1.0)",
+         "width": 0,
+         "unit": "€"
+       },
+       {
+         "minValue": 30473,
+         "maxValue": 37920,
+         "color": "transparent",
+         "fill": "rgba(42,146,75,1.0)",
+         "width": 0,
+         "unit": "€"
+       },
+       {
+         "minValue": 37920,
+         "maxValue": 85792,
+         "color": "transparent",
+         "fill": "rgba(0,68,27,1.0)",
+         "width": 0,
+         "unit": "€"
+       }
+     ],
+     "MixedUsesI": [
+       {
+         "minValue": 0,
+         "maxValue": 0.088,
+         "color": "transparent",
+         "fill": "rgba(237,248,251,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 0.088,
+         "maxValue": 0.238,
+         "color": "transparent",
+         "fill": "rgba(178,226,226,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 0.238,
+         "maxValue": 0.38,
+         "color": "transparent",
+         "fill": "rgba(102,194,164,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 0.38,
+         "maxValue": 0.558,
+         "color": "transparent",
+         "fill": "rgba(44,162,95,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 0.558,
+         "maxValue": 0.944,
+         "color": "transparent",
+         "fill": "rgba(0,109,44,1.0)",
+         "width": 0,
+         "unit": ""
+       }
+     ],
+     "NUM_PB_FAC": [
+       {
+         "minValue": 0,
+         "maxValue": 1,
+         "color": "transparent",
+         "fill": "rgba(247,252,245,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 1,
+         "maxValue": 5,
+         "color": "transparent",
+         "fill": "rgba(201,234,194,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 5,
+         "maxValue": 13,
+         "color": "transparent",
+         "fill": "rgba(123,199,124,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 13,
+         "maxValue": 32,
+         "color": "transparent",
+         "fill": "rgba(42,146,75,1.0)",
+         "width": 0,
+         "unit": ""
+       },
+       {
+         "minValue": 32,
+         "maxValue": 82,
+         "color": "transparent",
+         "fill": "rgba(0,68,27,1.0)",
+         "width": 0,
+         "unit": ""
+       }
+     ],
+     "Esp_Verdes": [
+      {
+        "value": "PLAYA DE EL CANDADO",
+        "color": "transparent",
+        "fill": "rgba(175,215,170,0.85)",
+        "width": 0,
+        "unit": ""
+      }
+    ]
+   },
+   "Point": {
+     "TRAF_UNI": [
+      {
+         "value" : 0,
+         "color": "rgba(131,202,133,1.0)",
+         "radius": 2
+      },
+      {
+         "value": 0.5,
+         "color": "rgba(131,176,235,1.0)",
+         "radius": 2
+      },
+      {
+         "value": 1,
+         "color": "rgba(242,120,122,1.0)",
+         "radius": 2
+      }
+     ],
+     "n_cruces": [
+      {
+         "value" : 3.5,
+         "color": "rgba(242,120,122,1.0)",
+         "radius": 2
+      },
+      {
+         "value": 4,
+         "color": "rgba(242,120,122,1.0)",
+         "radius": 2
+      },
+      {
+         "value": 5,
+         "color": "rgba(242,120,122,1.0)",
+         "radius": 2
+      },
+      {
+         "value": 6,
+         "color": "rgba(242,120,122,1.0)",
+         "radius": 2
+      }
+     ],
+     "ESTAC_BICI_TIPO": [
+      {
+         "value" : "ESTAC_BICI",
+         "color": "rgba(223,76,79,1.0)",
+         "radius": 2
+      }
+     ],
+     "TAXIS_TIPO": [
+      {
+         "value" : "INTERMODAL",
+         "color": "rgba(229,182,54,1.0)",
+         "radius": 2
+      }
+     ],
+     "PARADAS_TPTE_TIPO": [
+      {
+         "value" : "Parada de metro",
+         "color": "rgba(0,54,125,1.0)",
+         "radius": 2
+      },
+      {
+        "value" : "BUS",
+        "color": "rgba(135,174,233,1.0)",
+        "radius": 2
+     }
+     ],
+     "MERCADOS_TIPO": [
+      {
+         "value" : "LOCALES",
+         "color": "rgba(168,136,243,1.0)",
+         "radius": 2
+      }
+     ],
+     "CENTROS_EMPLEO_TIPO": [
+      {
+         "value" : "CENTRO_EMP",
+         "color": "rgba(176,141,86,1.0)",
+         "radius": 2
+      }
+     ],
+     "CENTROS_EDUCATIVOS_TIPO": [
+      {
+         "value" : "Centro de Educación Infantil",
+         "color": "rgba(195,91,192,1.0)",
+         "radius": 2
+      },
+      {
+        "value" : "Centro Docente Privado",
+        "color": "rgba(241,224,33,1.0)",
+        "radius": 2
+      },
+      {
+      "value" : "Colegio de Educación Infantil y Primaria",
+      "color": "rgba(195,91,192,1.0)",
+      "radius": 2
+      },
+      {
+      "value" : "Escuela Infantil",
+      "color": "rgba(195,91,192,1.0)",
+      "radius": 2
+      }
+     ]
+   },
+   "Polyline": {
+     "A00_FreqAn": [
+       {
+         "minValue": 0,
+         "maxValue": 2,
+         "color": "rgba(126,70,116,255)",
+         "width": 1,
+         "unit": ""
+       },
+       {
+         "minValue": 2.00000001,
+         "maxValue": 7,
+         "color": "rgba(126,70,116,255)",
+         "width": 4,
+         "unit": ""
+       },
+       {
+         "minValue": 7.00000001,
+         "maxValue": 10,
+         "color": "rgba(126,70,116,255)",
+         "width": 7,
+         "unit": ""
+       },
+       {
+         "minValue": 10.000000001,
+         "maxValue": 14,
+         "color": "rgba(126,70,116,255)",
+         "width": 10,
+         "unit": ""
+       }
+     ],
+     "CONTINUIDAD_TIPO": [
+      {
+        "value": "CONTINUIDA",
+        "color": "rgba(84,84,84,255)",
+        "width": 10,
+        "unit": ""
+      }
+    ],
+     "PRD_TIPO": [
+      {
+        "value": "PRD",
+        "color": "rgba(135,207,111,255)",
+        "width": 10,
+        "unit": ""
+      }
+    ],
+    "ACCESO_BICI_TIPO": [
+      {
+        "value": "ACCESOBICI",
+        "color": "rgba(223,76,79,255)",
+        "width": 15,
+        "unit": ""
+      }
+    ],
+    "INTERMODALIDAD_TIPO": [
+      {
+        "value": "INTERMODAL",
+        "color": "rgba(131,176,235,255)",
+        "width": 10,
+        "unit": ""
+      }
+    ],
+    "I19_TIPO": [
+      {
+        "minValue": -0.1,
+        "maxValue": 0.1,
+        "color": "rgba(152,125,183,255)",
+        "width": 5,
+        "unit": ""
+      },
+      {
+        "minValue": 0.9,
+        "maxValue": 1.1,
+        "color": "rgba(230,234,255,255)",
+        "width": 5,
+        "unit": ""
+      }
+    ],
+    "RUTAS_COLEGIOS_TIPO": [
+      {
+        "minValue": 0.9,
+        "maxValue": 1.1,
+        "color": "rgba(54,118,229,85)",
+        "width": 10,
+        "unit": ""
+      },
+      {
+        "minValue": 1.9,
+        "maxValue": 2.1,
+        "color": "rgba(131,176,235,255)",
+        "width": 10,
+        "unit": ""
+      },
+      {
+        "minValue": 2.9,
+        "maxValue": 3.1,
+        "color": "rgba(131,202,133,255)",
+        "width": 10,
+        "unit": ""
+      }
+    ],
+    "MODOTPTE": [
+      {
+        "value": "ANDA",
+        "color": "rgba(131,202,133,85)",
+        "width": 15,
+        "unit": ""
+      },
+      {
+        "value": "BICI",
+        "color": "rgba(242,120,122,255)",
+        "width": 15,
+        "unit": ""
+      },
+      {
+        "value": "TP",
+        "color": "rgba(131,176,235,255)",
+        "width": 15,
+        "unit": ""
+      },
+      {
+        "value": "COCHE_MOTO",
+        "color": "rgba(163,130,102,255)",
+        "width": 15,
+        "unit": ""
+      },
+      {
+        "value": "OTRO",
+        "color": "rgba(235,215,133,255)",
+        "width": 15,
+        "unit": ""
+      }
+    ],
+    
+     "CH": [
+       {
+         "minValue": 0,
+         "maxValue": 4762531,
+         "color": "rgba(223,217,235,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 4762531,
+         "maxValue": 17825560,
+         "color": "rgba(176,183,217,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 17825560,
+         "maxValue": 35706744,
+         "color": "rgba(78,141,186,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 35706744,
+         "maxValue": 56889224,
+         "color": "rgba(17,99,140,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 56889224,
+         "maxValue": 78993912,
+         "color": "rgba(2,36,56,255)",
+         "width": null,
+         "unit": ""
+       }
+     ],
+     "CHr400m": [
+       {
+         "minValue": 0,
+         "maxValue": 551,
+         "color": "rgba(223,217,235,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 551,
+         "maxValue": 1362,
+         "color": "rgba(176,183,217,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 1362,
+         "maxValue": 2570,
+         "color": "rgba(78,141,186,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 2570,
+         "maxValue": 5002,
+         "color": "rgba(17,99,140,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 5002,
+         "maxValue": 12917,
+         "color": "rgba(2,36,56,255)",
+         "width": null,
+         "unit": ""
+       }
+     ],
+     "CHr800m": [
+       {
+         "minValue": 0,
+         "maxValue": 3564,
+         "color": "rgba(223,217,235,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 3564,
+         "maxValue": 9564,
+         "color": "rgba(176,183,217,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 9564,
+         "maxValue": 19138,
+         "color": "rgba(78,141,186,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 19138,
+         "maxValue": 36988,
+         "color": "rgba(17,99,140,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 36988,
+         "maxValue": 73857,
+         "color": "rgba(2,36,56,255)",
+         "width": null,
+         "unit": ""
+       }
+     ],
+     "INT": [
+       {
+         "minValue": 646,
+         "maxValue": 1329,
+         "color": "rgba(245,245,226,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 1329,
+         "maxValue": 1618,
+         "color": "rgba(251,189,171,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 1618,
+         "maxValue": 1905,
+         "color": "rgba(212,76,108,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 1905,
+         "maxValue": 2206,
+         "color": "rgba(129,37,129,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 2206,
+         "maxValue": 2720,
+         "color": "rgba(0,0,4,255)",
+         "width": null,
+         "unit": ""
+       }
+     ],
+     "INTr400m": [
+       {
+         "minValue": 2,
+         "maxValue": 31,
+         "color": "rgba(245,245,226,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 31,
+         "maxValue": 50,
+         "color": "rgba(251,189,171,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 50,
+         "maxValue": 72,
+         "color": "rgba(212,76,108,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 72,
+         "maxValue": 100,
+         "color": "rgba(129,37,129,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 100,
+         "maxValue": 230,
+         "color": "rgba(0,0,4,255)",
+         "width": null,
+         "unit": ""
+       }
+     ],
+     "INTr800m": [
+       {
+         "minValue": 6,
+         "maxValue": 69,
+         "color": "rgba(245,245,226,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 69,
+         "maxValue": 118,
+         "color": "rgba(251,189,171,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 118,
+         "maxValue": 171,
+         "color": "rgba(212,76,108,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 171,
+         "maxValue": 236,
+         "color": "rgba(129,37,129,255)",
+         "width": null,
+         "unit": ""
+       },
+       {
+         "minValue": 236,
+         "maxValue": 416,
+         "color": "rgba(0,0,4,255)",
+         "width": null,
+         "unit": ""
+       }
+     ]
+   }
+ }
