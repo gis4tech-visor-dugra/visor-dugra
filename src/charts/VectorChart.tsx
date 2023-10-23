@@ -1,4 +1,4 @@
-/* import React, { useRef, useState, useEffect } from "react";  
+import React, { useRef, useState, useEffect } from "react";  
 // Import Redux
 //Importa las bibliotecas y componentes necesarios, como React, Redux, axios 
 //(para hacer solicitudes HTTP), componentes de Material-UI y varios módulos relacionados con Chart.js.
@@ -150,4 +150,4 @@ export default function VectorChart() {
       <Bar ref={chartRef} data={data} options={options} onClick={onClick} height={259}/>
     </div>
   );
-} */
+}
