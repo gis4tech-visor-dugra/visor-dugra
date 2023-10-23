@@ -75,15 +75,15 @@ export default function VectorChart() {
     printElementAtEvent(getElementAtEvent(chart, event));
   }
 
-  useEffect(() => {
-    setSortedDataLayer([...dataLayer].sort((a, b) => a - b));
-    if (!Object.keys(leyend).length) {
-      axios.get(`/data/indicatorStyles_${city}.json`)
-      .then(res => {
-        setLeyend(res.data);
-      })
-    }
-  }, [dataLayer, layer, leyend, city]);
+  //useEffect(() => {
+    //setSortedDataLayer([...dataLayer].sort((a, b) => a - b));
+    //if (!Object.keys(leyend).length) {
+      //axios.get(`/data/indicatorStyles_${city}.json`)
+      //.then(res => {
+        //setLeyend(res.data);
+      //})
+    //}
+  //}, [dataLayer, layer, leyend, city]);
   
   const options = {
     maintainAspectRatio: false,
