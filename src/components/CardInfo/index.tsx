@@ -13,7 +13,7 @@ export default function BasicCard() {
     <Card
       sx={{
         boxShadow: "none",
-        backgroundColor: "#2FFFE6",
+        backgroundColor: "#CF1313",
         opacity: "100%",
         zIndex: "99",
         marginBottom: "10px",
