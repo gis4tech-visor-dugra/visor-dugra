@@ -1,5 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
+/* import React, { useRef, useState, useEffect } from "react";  
 // Import Redux
+//Importa las bibliotecas y componentes necesarios, como React, Redux, axios 
+//(para hacer solicitudes HTTP), componentes de Material-UI y varios módulos relacionados con Chart.js.
 import { useSelector, useDispatch } from "react-redux";
 import axios from 'axios';
 import { getLayerData } from "../store/slices/data";
@@ -75,15 +77,15 @@ export default function VectorChart() {
     printElementAtEvent(getElementAtEvent(chart, event));
   }
 
-  //useEffect(() => {
-    //setSortedDataLayer([...dataLayer].sort((a, b) => a - b));
-    //if (!Object.keys(leyend).length) {
-      //axios.get(`/data/indicatorStyles_${city}.json`)
-      //.then(res => {
-        //setLeyend(res.data);
-      //})
-    //}
-  //}, [dataLayer, layer, leyend, city]);
+  useEffect(() => {
+    setSortedDataLayer([...dataLayer].sort((a, b) => a - b));
+    if (!Object.keys(leyend).length) {
+      axios.get(`/data/indicatorStyles_${city}.json`)
+      .then(res => {
+        setLeyend(res.data);
+      })
+    }
+  }, [dataLayer, layer, leyend, city]);
   
   const options = {
     maintainAspectRatio: false,
@@ -148,4 +150,4 @@ export default function VectorChart() {
       <Bar ref={chartRef} data={data} options={options} onClick={onClick} height={259}/>
     </div>
   );
-}
+} */
