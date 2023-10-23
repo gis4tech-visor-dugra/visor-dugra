@@ -14,13 +14,6 @@ import Sponsor from '../components/Sponsor';
 import Developer from '../components/Developer';
 import CardInfo from '../components/CardInfo';
 
-const MapGranada = dynamic(() => import('../components/MapGranada/Map'), {
-  ssr: false
-});
-
-const MapMalaga = dynamic(() => import('../components/MapMalaga/Map'), {
-  ssr: false
-});
 // Components
 import Select from "../components/Select/Indicadores";
 import Drawer from "../components/Drawer";
@@ -30,15 +23,6 @@ export default function App() {
   const [value, setValue] = useState('Granada');
   const dispatch = useDispatch();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-    dispatch(getCity(newValue));
-    if (newValue === 'Granada') {
-      dispatch(getName('GR'));
-    } else {
-      dispatch(getName('MA'));
-    }
-  };
 
   return (
     <Box sx={{ width: '100%', typography: 'body1' }}>
@@ -49,14 +33,6 @@ export default function App() {
             <Tab label="Málaga" value="Malaga" />
           </TabList>
         </Box>
-        <TabPanel value="Granada">
-          < MapGranada />
-          <Drawer />
-        </TabPanel>
-        <TabPanel value="Malaga">
-          < MapMalaga />
-          <Drawer />
-        </TabPanel>
       </TabContext>
       <div style={{ position:'absolute', top:'0px', right:'20px' }} >
         <div style={{ display:'flex', justifyContent:'center', alignItems:'center' }}>
