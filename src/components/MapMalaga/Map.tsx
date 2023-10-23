@@ -58,6 +58,7 @@ const OpenLayersMap = () => {
 
 	const mapNode = useRef(null);
 	const layer = useSelector((state:any) => state.layer.layer) as string;
+	const units = useSelector((state:any) => state.layer.units) as string;
 	const basemap = useSelector((state:any) => state.basemap.basemap);
 	const baselayer= useSelector((state:any) => state.baselayer.baselayer);
 	const mvt = useSelector((state:any) => state.mvt.mvt);
@@ -792,15 +793,30 @@ const OpenLayersMap = () => {
 				}),
 			}),
 		});
-		const displayFeatureInfo = function (pixel: any) {
+		const displayFeatureInfo = function (pixel: any, evt: any) {
 			const feature = map.forEachFeatureAtPixel(pixel, function (feature) {
 				return feature;
 			});
 			const info = document.getElementById('info');
+			const popup = document.getElementById('popup');
 			if (feature) {
-				info!.innerHTML = feature.get(layer) || '&nbsp;';
+				let value = feature.get(layer);
+				if (typeof value === "number") {
+					value = parseFloat(value.toFixed(2)).toString(); // Redondear a dos decimales si el valor es un número
+				}
+				info!.innerHTML = (value || '') + ' ' + units;
+				popup!.innerHTML = (value || '') + ' ' + units;
+				
+				const coordinate = evt.coordinate;
+				const [x, y] = map.getPixelFromCoordinate(coordinate);
+				popup!.style.left = x + 'px';
+				popup!.style.top = (y - popup!.offsetHeight) + 'px';
+				popup!.style.display = 'block';
 			} else {
 				info!.innerHTML = '&nbsp;';
+				const popup = document.getElementById('popup');
+				popup!.innerHTML = '&nbsp;';
+				popup!.style.display = 'none';
 			}
 		};
 		map.on('pointermove', function (evt) {
@@ -808,10 +824,10 @@ const OpenLayersMap = () => {
 				return;
 			}
 			const pixel = map.getEventPixel(evt.originalEvent);
-			displayFeatureInfo(pixel);
+			displayFeatureInfo(pixel, evt);
 		});
 		map.on('click', function (evt) {
-			displayFeatureInfo(evt.pixel);
+			displayFeatureInfo(evt.pixel, evt);
 		});
 	
 		setMap(map);
@@ -822,7 +838,11 @@ const OpenLayersMap = () => {
 	}, [layer, basemap, baselayer, mvt, styleLayer, city]);
 
 	return (
-		<div ref={mapNode} style={{ width: "100%", height: "100%", position:'fixed', top: '50px', left: '0px' }} >
+		<div ref={mapNode} style={{ width: "100%", height: "100%", position: 'fixed', top: '50px', left: '0px' }}>
+			<div id="popup" className="ol-popup">
+				<a href="#" id="popup-closer" className="ol-popup-closer"></a>
+				<div id="popup"></div> 
+			</div>
 		</div>
 	);
 }

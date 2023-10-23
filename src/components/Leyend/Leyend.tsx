@@ -33,8 +33,6 @@ const Item = styled(Box)({
   background: "rgba(255,255,255,0.8)",
 });
 
-
-
 export default function Leyend() {
   const [data, setData] = useState({}) as any;
   const layer = useSelector((state:any) => state.layer.layer);
@@ -44,9 +42,9 @@ export default function Leyend() {
   let city = useSelector((state:any) => state.city.name);
 
   const handleChange = async (minValue: any, maxValue: any) => {
-    let dataStoreFilter = dataStore.filter((number: any) => number >= minValue && number <= maxValue);
+    let dataStoreFilter = dataStore.filter((number: any) => number >= `${parseFloat(minValue).toFixed(2)}` && number <= `${parseFloat(maxValue).toFixed(2)}`);
     dispatch(getLayerData(dataStoreFilter));
-    let styleStoreFilter = styleStore?.[layer]?.filter((item:any) => item.minValue === minValue && item.maxValue === maxValue);
+    let styleStoreFilter = styleStore?.[layer]?.filter((item:any) => `${parseFloat(item.minValue).toFixed(2)}` === `${parseFloat(minValue).toFixed(2)}` && `${parseFloat(item.maxValue).toFixed(2)}` === `${parseFloat(maxValue).toFixed(2)}`);
     dispatch(getLayerStyle({[layer]:styleStoreFilter}));
   };
   

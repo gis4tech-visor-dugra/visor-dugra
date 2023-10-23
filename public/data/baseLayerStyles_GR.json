@@ -366,7 +366,7 @@
     ],
      "A00_FreqAn": [
        {
-         "minValue": 0.000000000000000,
+         "minValue": 0,
          "maxValue": 0.142860000000000,
          "color": "rgba(126,70,116,255)",
          "width": 1,
@@ -404,75 +404,75 @@
     ],
      "CH": [
        {
-         "minValue": 0.000000000000000,
+         "minValue": 0,
          "maxValue": 1502390.000000000,
          "color": "rgba(223,217,235,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 1502390.000000000,
          "maxValue": 5357547.000000000,
          "color": "rgba(176,183,217,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 5357547.000000000,
          "maxValue": 12713380.00000000,
          "color": "rgba(78,141,186,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 12713380.00000000,
          "maxValue": 21919396.00000000,
          "color": "rgba(17,99,140,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 21919396.00000000,
          "maxValue": 29053596.00000000,
          "color": "rgba(2,36,56,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
      "CHr400m": [
        {
-         "minValue": 0.000000000000000,
+         "minValue": 0,
          "maxValue": 883.0000000000000,
          "color": "rgba(223,217,235,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 883.0000000000000,
          "maxValue": 2558.000000000000,
          "color": "rgba(176,183,217,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 2558.000000000000,
          "maxValue": 5553.000000000000,
          "color": "rgba(78,141,186,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 5553.000000000000,
          "maxValue": 10534.00000000000,
          "color": "rgba(17,99,140,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 10534.00000000000,
          "maxValue": 22066.00000000000,
          "color": "rgba(2,36,56,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -481,35 +481,35 @@
          "minValue": 0.00000000000000,
          "maxValue": 9162.000000,
          "color": "rgba(223,217,235,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 9162.000000,
          "maxValue": 30660.000000,
          "color": "rgba(176,183,217,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 30660.000000,
          "maxValue": 72073.000000,
          "color": "rgba(78,141,186,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 72073.000000,
          "maxValue": 142590.000000,
          "color": "rgba(17,99,140,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 142590.000000,
          "maxValue": 221196.000000,
          "color": "rgba(2,36,56,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -518,35 +518,35 @@
          "minValue": -1.00000000000000,
          "maxValue": 834.2858899999999,
          "color": "rgba(245,245,226,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 834.2858899999999,
          "maxValue": 1015.825000000000,
          "color": "rgba(251,189,171,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 1015.825000000000,
          "maxValue": 1199.269199999999,
          "color": "rgba(212,76,108,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 1199.269199999999,
          "maxValue": 1400.283300000000,
          "color": "rgba(129,37,129,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 1400.283300000000,
          "maxValue": 1746.768199999999,
          "color": "rgba(0,0,4,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -555,35 +555,35 @@
          "minValue": -1.00000000000000,
          "maxValue": 35.88600499999999,
          "color": "rgba(245,245,226,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 35.88600499999999,
          "maxValue": 60.73436000000000,
          "color": "rgba(251,189,171,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 60.73436000000000,
          "maxValue": 89.32988699999999,
          "color": "rgba(212,76,108,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 89.32988699999999,
          "maxValue": 125.3132999999999,
          "color": "rgba(129,37,129,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 125.3132999999999,
          "maxValue": 208.2449300000000,
          "color": "rgba(0,0,4,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -592,35 +592,35 @@
          "minValue": -1.00000000000000,
          "maxValue": 75.14897899999999,
          "color": "rgba(245,245,226,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 75.14897899999999,
          "maxValue": 132.0140800000000,
          "color": "rgba(251,189,171,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 132.0140800000000,
          "maxValue": 191.5908799999999,
          "color": "rgba(212,76,108,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 191.5908799999999,
          "maxValue": 267.8871800000000,
          "color": "rgba(129,37,129,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 267.8871800000000,
          "maxValue": 428.0793499999999,
          "color": "rgba(0,0,4,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ]

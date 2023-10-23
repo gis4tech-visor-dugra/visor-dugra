@@ -421,35 +421,35 @@
          "minValue": 0,
          "maxValue": 4762531,
          "color": "rgba(223,217,235,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 4762531,
          "maxValue": 17825560,
          "color": "rgba(176,183,217,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 17825560,
          "maxValue": 35706744,
          "color": "rgba(78,141,186,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 35706744,
          "maxValue": 56889224,
          "color": "rgba(17,99,140,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 56889224,
          "maxValue": 78993912,
          "color": "rgba(2,36,56,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -458,35 +458,35 @@
          "minValue": 0,
          "maxValue": 551,
          "color": "rgba(223,217,235,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 551,
          "maxValue": 1362,
          "color": "rgba(176,183,217,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 1362,
          "maxValue": 2570,
          "color": "rgba(78,141,186,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 2570,
          "maxValue": 5002,
          "color": "rgba(17,99,140,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 5002,
          "maxValue": 12917,
          "color": "rgba(2,36,56,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -495,35 +495,35 @@
          "minValue": 0,
          "maxValue": 3564,
          "color": "rgba(223,217,235,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 3564,
          "maxValue": 9564,
          "color": "rgba(176,183,217,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 9564,
          "maxValue": 19138,
          "color": "rgba(78,141,186,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 19138,
          "maxValue": 36988,
          "color": "rgba(17,99,140,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 36988,
          "maxValue": 73857,
          "color": "rgba(2,36,56,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -532,35 +532,35 @@
          "minValue": 646,
          "maxValue": 1329,
          "color": "rgba(245,245,226,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 1329,
          "maxValue": 1618,
          "color": "rgba(251,189,171,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 1618,
          "maxValue": 1905,
          "color": "rgba(212,76,108,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 1905,
          "maxValue": 2206,
          "color": "rgba(129,37,129,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 2206,
          "maxValue": 2720,
          "color": "rgba(0,0,4,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -569,35 +569,35 @@
          "minValue": 2,
          "maxValue": 31,
          "color": "rgba(245,245,226,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 31,
          "maxValue": 50,
          "color": "rgba(251,189,171,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 50,
          "maxValue": 72,
          "color": "rgba(212,76,108,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 72,
          "maxValue": 100,
          "color": "rgba(129,37,129,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 100,
          "maxValue": 230,
          "color": "rgba(0,0,4,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ],
@@ -606,35 +606,35 @@
          "minValue": 6,
          "maxValue": 69,
          "color": "rgba(245,245,226,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 69,
          "maxValue": 118,
          "color": "rgba(251,189,171,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 118,
          "maxValue": 171,
          "color": "rgba(212,76,108,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 171,
          "maxValue": 236,
          "color": "rgba(129,37,129,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        },
        {
          "minValue": 236,
          "maxValue": 416,
          "color": "rgba(0,0,4,255)",
-         "width": null,
+         "width": 1,
          "unit": ""
        }
      ]

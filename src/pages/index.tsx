@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import React , {useState} from 'react';
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { getCity, getName } from '../store/slices/city';
 
 import Box from '@mui/material/Box';
@@ -11,18 +11,40 @@ import TabPanel from '@mui/lab/TabPanel';
 import Typography from '@mui/material/Typography';
 
 import Sponsor from '../components/Sponsor';
+import Info from '../components/Info';
 import Developer from '../components/Developer';
 import CardInfo from '../components/CardInfo';
+import DownloadButton from '../components/Download/DownloadButton';
 
+const MapGranada = dynamic(() => import('../components/MapGranada/Map'), {
+  ssr: false
+});
+
+const MapMalaga = dynamic(() => import('../components/MapMalaga/Map'), {
+  ssr: false
+});
 // Components
 import Select from "../components/Select/Indicadores";
+import SelectBasemap from "../components/Select/BaseMaps";
+import SelectBaseLayer from "../components/Select/CapasBase";
 import Drawer from "../components/Drawer";
 
 
 export default function App() {
   const [value, setValue] = useState('Granada');
   const dispatch = useDispatch();
+  const title = useSelector((state: any) => state.layer.title);
+  const units = useSelector((state: any) => state.layer.units);
 
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+    dispatch(getCity(newValue));
+    if (newValue === 'Granada') {
+      dispatch(getName('GR'));
+    } else {
+      dispatch(getName('MA'));
+    }
+  };
 
   return (
     <Box sx={{ width: '100%', typography: 'body1' }}>
@@ -33,7 +55,21 @@ export default function App() {
             <Tab label="Málaga" value="Malaga" />
           </TabList>
         </Box>
+        <TabPanel value="Granada">
+          < MapGranada />
+          <Drawer />
+        </TabPanel>
+        <TabPanel value="Malaga">
+          < MapMalaga />
+          <Drawer />
+        </TabPanel>
       </TabContext>
+      <div style={{ position:'absolute', top:'10px', right:'300px' }} >
+        <div style={{ display:'flex', justifyContent:'center', alignItems:'center' }}>
+          <Typography><b>{title} ({units})</b></Typography>
+          <Info />
+        </div>
+      </div>
       <div style={{ position:'absolute', top:'0px', right:'20px' }} >
         <div style={{ display:'flex', justifyContent:'center', alignItems:'center' }}>
           <Typography variant="caption" color="text.secondary" align="center">Financiado por </Typography>
@@ -46,6 +82,9 @@ export default function App() {
       <Box sx={{ position:'absolute', bottom:'60px', left:'20px'}}>
         <CardInfo />
         <Select />
+        <SelectBaseLayer />
+        <SelectBasemap />
+        <DownloadButton />
       </Box>
     </Box>
   );

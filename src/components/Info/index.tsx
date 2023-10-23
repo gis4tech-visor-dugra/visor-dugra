@@ -5,8 +5,8 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
-import Parner from './Parner';
+import Descriptor from './Descriptor';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const drawerWidth = 240;
 
@@ -57,13 +57,9 @@ export default function PersistentDrawerLeft() {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{ mr: 0, ...(open && { display: 'none' }) }}
+            sx={{ mr: '0',marginLeft: '1px', ...(open && { display: 'none' }) }}
           >
-            <Avatar
-              alt="Remy Sharp"
-              src="/images/Emblema_de_la_Junta_de_Andalucía_2020.svg"
-              sx={{ width: 40, height: 40 }}
-            />
+            <InfoOutlinedIcon style={{color:'gray'}}/>
       </IconButton>
       <Drawer
         sx={{
@@ -89,7 +85,7 @@ export default function PersistentDrawerLeft() {
             {theme.direction === 'ltr' ? <CloseIcon /> : <CloseIcon />}
           </IconButton>
         </DrawerHeader>
-        <Parner />
+        <Descriptor />
       </Drawer>
     </Box>
   );

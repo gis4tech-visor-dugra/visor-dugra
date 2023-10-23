@@ -49,6 +49,12 @@ body,
 	border-radius: 0px;
 	float: right;
 }
+.ol-zoom .ol-zoom-out {
+    font-size: 1.7em;
+}
+.ol-control .ol-zoom-in {
+	font-size: 1.7em;
+}
 
 .ol-control button:focus,
 .ol-control button:hover {
@@ -71,3 +77,26 @@ body,
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
 	background: rgba(255,255,255,0.8);
 }
+
+.ol-popup {
+	position: absolute;
+	background-color: white;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	padding: 15px;
+	border-radius: 10px;
+	border: 1px solid #cccccc;
+	max-width: 250px;
+	z-index: 1000;
+}
+
+.ol-popup-closer {
+	text-decoration: none;
+	position: absolute;
+	top: 2px;
+	right: 8px;
+}
+
+.ol-popup-closer:after {
+	content: "✖";
+}
+

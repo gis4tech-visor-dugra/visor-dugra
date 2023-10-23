@@ -4,10 +4,14 @@ export const layerSlice = createSlice({
   name: "layer",
   initialState: {
     layer: "Densidad_Res",
+    title: "Densidad Residencial",
+    units: "hab/m",
+    description: "Densidad de población residencial por manzana",
   },
   reducers: {
     getLayer: (state, action) => {
-      state.layer = action.payload;
+      state = {...state, ...action.payload};
+      return state;
     },
   },
 });

@@ -1,19 +1,24 @@
 import * as React from "react";
 
-// Import Redux
+// Importar Redux
 import { useSelector } from "react-redux";
 
+// Importar componentes de Material-UI
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
+// Componente principal
 export default function BasicCard() {
-  const layer = useSelector((state: any) => state.layer.layer);
+  // Obtener el título de la capa desde el estado de Redux
+  const layer = useSelector((state: any) => state.layer.title);
+
   return (
+    // Tarjeta principal con estilos específicos
     <Card
       sx={{
         boxShadow: "none",
-        backgroundColor: "#CF1313",
+        backgroundColor: "#328944",
         opacity: "100%",
         zIndex: "99",
         marginBottom: "10px",
@@ -23,14 +28,21 @@ export default function BasicCard() {
       }}
     >
       <CardContent>
+        {/* Mostrar el título de la capa */}
         <Typography
           variant="subtitle1"
           color="White"
           gutterBottom
-          sx={{ margin: "auto" }}
+          sx={{ 
+            margin: "auto",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap"
+          }}
         >
           <b>{layer}</b>
         </Typography>
+        {/* Sección de información adicional */}
         <Typography
           variant="body1"
           gutterBottom
@@ -41,6 +53,7 @@ export default function BasicCard() {
           <b>
             <span id="info">&nbsp;</span>
           </b>
+          {" "}
         </Typography>
       </CardContent>
     </Card>

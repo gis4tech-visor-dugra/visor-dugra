@@ -1,14 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";  
-// Import Redux
-//Importa las bibliotecas y componentes necesarios, como React, Redux, axios 
-//(para hacer solicitudes HTTP), componentes de Material-UI y varios módulos relacionados con Chart.js.
+// Importaciones de React
+import React, { useRef, useState, useEffect } from "react";
+
+// Importaciones de Redux
 import { useSelector, useDispatch } from "react-redux";
+import { getLayerStyle,resetLayerStyle } from "../store/slices/style";
+
+// Importaciones de Axios para peticiones HTTP
 import axios from 'axios';
-import { getLayerData } from "../store/slices/data";
-import {getLayerStyle} from "../store/slices/style";
 
+// Importaciones de  Tipos y ChartJS
 import type { InteractionItem } from 'chart.js';
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -18,8 +19,11 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+
+// Importaciones de React-ChartJS-2 para integración con React
 import { Bar, getDatasetAtEvent, getElementAtEvent, getElementsAtEvent } from "react-chartjs-2";
 
+// Importaciones de componentes de Material-UI
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -27,6 +31,7 @@ import DialogContent from "@mui/material/DialogContent";
 import FullscreenRoundedIcon from "@mui/icons-material/FullscreenRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
+// Registro de componentes necesarios para ChartJS
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -37,82 +42,118 @@ ChartJS.register(
 );
 
 export default function VectorChart() {
+  // Estado local y referencias
   const chartRef = useRef() as any;
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const layer = useSelector((state:any) => state.layer.layer);
-  const dataLayer = useSelector((state:any) => state.data.data);
   const [sortedDataLayer, setSortedDataLayer] = useState([] as any);
   const [leyend, setLeyend] = useState({}) as any;
-  let styleStore = useSelector((state:any) => state.style.style);
-  let city = useSelector((state:any) => state.city.name);
+  const [binLabels, setBinLabels] = useState([] as any);
 
+  // Estado desde Redux
+  const layer = useSelector((state: any) => state.layer.layer);
+  const title = useSelector((state: any) => state.layer.title);
+  const units = useSelector((state: any) => state.layer.units);
+  const dataLayer = useSelector((state: any) => state.data.data);
+  const styleStore = useSelector((state: any) => state.style.style);
+  const city = useSelector((state: any) => state.city.name);
+
+  // Manejador de evento para extraer estilos de capa del elemento clickeado
   const printElementAtEvent = (element: InteractionItem[]) => {
     if (!element.length) return;
     const { index } = element[0];
     let styleStoreFilter = styleStore?.[layer];
     if (!styleStoreFilter) return;
 
-    let closestDifference = Infinity;
     let closestItem: any;
 
-    styleStoreFilter.forEach((item: any) => {
-        const minDifference = Math.abs(item.minValue - index);
-        const maxDifference = Math.abs(item.maxValue - index);
+    // Aquí usamos los valores originales en lugar de los redondeados.
+    if (styleStoreFilter[index]) {
+        closestItem = styleStoreFilter[index];
+    }
 
-        if (minDifference < closestDifference || maxDifference < closestDifference) {
-            closestDifference = Math.min(minDifference, maxDifference);
-            closestItem = item;
-        }
-    });
-
-    dispatch(getLayerStyle({[layer]: [closestItem]}));
+    if (closestItem) {
+        dispatch(resetLayerStyle());  // Restablece el estilo/filtrado existente
+        dispatch(getLayerStyle({[layer]: [closestItem]})); // Establece el nuevo estilo/filtrado
+    }
 };
 
-  const onClick = (event:any) => {
+  // Manejador para el evento click en el gráfico
+  const onClick = (event: any) => {
     const { current: chart } = chartRef;
-    if (!chart) {
-      return;
-    }
+    if (!chart) return;
     printElementAtEvent(getElementAtEvent(chart, event));
   }
 
+  const createBinsFromJSON = (data: any, layerStyle: any) => {
+    // Inicializa un arreglo para los bins con 0s
+    const bins = new Array(layerStyle.length).fill(0);
+
+    // Llena los bins según el rango de cada objeto en layerStyle
+    data.forEach((value: any) => {
+      for (let i = 0; i < layerStyle.length; i++) {
+        if (value >= layerStyle[i].minValue && value <= layerStyle[i].maxValue) {
+          bins[i]++;
+          break;
+        }
+      }
+    });
+
+    // Extrae los limites de bins para las etiquetas
+    const binUnits = layerStyle.map((style: any) => style.unit);
+    const binLimits = layerStyle.map((style: any) => `${parseFloat(style.minValue).toFixed(2)} - ${parseFloat(style.maxValue).toFixed(2)} ${style.unit}`);
+
+    return {
+      bins,
+      binLimits,
+      binUnits
+    };
+  };
+
+  // Efecto para ordenar datos y obtener la leyenda si es necesario
   useEffect(() => {
-    setSortedDataLayer([...dataLayer].sort((a, b) => a - b));
+    if (dataLayer && dataLayer.length > 0 && leyend[layer]) {
+        const { bins, binLimits } = createBinsFromJSON(dataLayer, leyend[layer]);
+        setSortedDataLayer(bins);
+        setBinLabels(binLimits);
+    }
+    
     if (!Object.keys(leyend).length) {
-      axios.get(`/data/indicatorStyles_${city}.json`)
-      .then(res => {
-        setLeyend(res.data);
-      })
+        axios.get(`/data/indicatorStyles_${city}.json`).then(res => {
+            setLeyend(res.data);
+        });
     }
   }, [dataLayer, layer, leyend, city]);
-  
+
+  // Configuración del gráfico
   const options = {
     maintainAspectRatio: false,
     responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: title
+      }
+    }
   };
-  const labels = sortedDataLayer;
 
+  // Datos para el gráfico
   const data = {
-    labels,
+    labels: binLabels, 
     datasets: [
-      {
-        fill: true,
-        label: layer,
-        data: sortedDataLayer,
-        borderColor: leyend && leyend[layer] && leyend[layer].map((item: any) => item.color) || [],
-        backgroundColor: leyend && leyend[layer] && leyend[layer].map((item: any) => item.color) || [],
-      },
+        {
+            fill: true,
+            label: title,
+            data: sortedDataLayer,
+            borderColor: leyend && leyend[layer] && leyend[layer].map((item: any) => item.color) || [],
+            backgroundColor: leyend && leyend[layer] && leyend[layer].map((item: any) => item.color) || [],
+        },
     ],
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // Manejadores para abrir/cerrar el diálogo
+  const handleClickOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div className="App">
