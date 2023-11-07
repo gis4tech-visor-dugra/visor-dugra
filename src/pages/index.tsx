@@ -1,4 +1,4 @@
- dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import React , {useState} from 'react';
 import { useDispatch, useSelector} from "react-redux";
 import { getCity, getName } from '../store/slices/city';
