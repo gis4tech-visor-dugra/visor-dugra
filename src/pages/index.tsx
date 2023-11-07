@@ -82,7 +82,7 @@ export default function App() {
       <Box sx={{ position:'absolute', bottom:'60px', left:'20px'}}>
         <CardInfo />
         <Select />
-        <SelectBaseLayer />
+        <SelectBasemap />
         <DownloadButton />
       </Box>
     </Box>
