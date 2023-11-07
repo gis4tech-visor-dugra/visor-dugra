@@ -26,7 +26,7 @@ const MapMalaga = dynamic(() => import('../components/MapMalaga/Map'), {
 // Components
 import Select from "../components/Select/Indicadores";
 import SelectBasemap from "../components/Select/BaseMaps";
-import SelectBaseLayer from "../components/Select/CapasBase";
+//import SelectBaseLayer from "../components/Select/CapasBase";
 import Drawer from "../components/Drawer";
 
 
