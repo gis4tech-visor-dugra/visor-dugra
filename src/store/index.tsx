@@ -17,7 +17,6 @@ export default configureStore({
     layer,
     data,
     basemap,
-    baselayer,
     mvt,
     type,
     style,
