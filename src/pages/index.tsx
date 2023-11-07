@@ -83,7 +83,6 @@ export default function App() {
         <CardInfo />
         <Select />
         <SelectBaseLayer />
-        <SelectBasemap />
         <DownloadButton />
       </Box>
     </Box>
