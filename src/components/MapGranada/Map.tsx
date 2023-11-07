@@ -57,7 +57,6 @@ const OpenLayersMap = () => {
 	const layer = useSelector((state:any) => state.layer.layer) as string;
 	const units = useSelector((state:any) => state.layer.units) as string;
 	const basemap = useSelector((state:any) => state.basemap.basemap);
-	const baselayer= useSelector((state:any) => state.baselayer.baselayer);
 	const mvt = useSelector((state:any) => state.mvt.mvt);
 	const type = useSelector((state:any) => state.type.type);
 	const styleLayer = useSelector((state:any) => state.style.style);
