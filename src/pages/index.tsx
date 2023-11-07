@@ -26,7 +26,6 @@ const MapMalaga = dynamic(() => import('../components/MapMalaga/Map'), {
 // Components
 import Select from "../components/Select/Indicadores";
 import SelectBasemap from "../components/Select/BaseMaps";
-import SelectBaseLayer from "../components/Select/CapasBase";
 import Drawer from "../components/Drawer";
 
 
@@ -82,7 +81,6 @@ export default function App() {
       <Box sx={{ position:'absolute', bottom:'60px', left:'20px'}}>
         <CardInfo />
         <Select />
-        <SelectBaseLayer />
         <SelectBasemap />
         <DownloadButton />
       </Box>
