@@ -97,7 +97,6 @@ export default function SwipeableEdgeDrawer(props: Props) {
       {/* Componentes de leyendas */}
       <Box sx={{ display: "flex", justifyContent: "right" }}>
         <Leyend />
-        <BaseLayerLeyend />
       </Box>
       {/* Componente SwipeableDrawer que muestra las gráficas */}
       <SwipeableDrawer
