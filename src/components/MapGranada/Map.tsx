@@ -71,7 +71,7 @@ const OpenLayersMap = () => {
 				setIsLoading(false);
 			})
 		}
-	}, [baselayer, dataBase, isLoading, type, styleLayer, city, mvt, layer]);
+	}, [dataBase, isLoading, type, styleLayer, city, mvt, layer]);
 
 	const view = new View({
 		center: granada,
