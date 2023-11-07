@@ -825,7 +825,7 @@ const OpenLayersMap = () => {
 		return () => {
 			map.setTarget();
 		  };
-	}, [layer, basemap, baselayer, mvt, styleLayer, city]);
+	}, [layer, basemap, mvt, styleLayer, city]);
 
 	return (
 		<div ref={mapNode} style={{ width: "100%", height: "100%", position: 'fixed', top: '50px', left: '0px' }}>
