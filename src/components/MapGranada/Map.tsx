@@ -779,7 +779,7 @@ const OpenLayersMap = () => {
 
         const map = new Map({
 			target: node,
-            layers:[BaseMap,vectorBaseLayer,vectorLayerLine],
+            layers:[BaseMap,vectorLayerLine],
             view: view,
 			controls: defaultControls().extend([scaleControl]),
         });
