@@ -57,7 +57,6 @@ const OpenLayersMap = () => {
 	const layer = useSelector((state:any) => state.layer.layer) as string;
 	const units = useSelector((state:any) => state.layer.units) as string;
 	const basemap = useSelector((state:any) => state.basemap.basemap);
-	const baselayer= useSelector((state:any) => state.baselayer.baselayer);
 	const mvt = useSelector((state:any) => state.mvt.mvt);
 	const type = useSelector((state:any) => state.type.type);
 	const styleLayer = useSelector((state:any) => state.style.style);
@@ -72,7 +71,7 @@ const OpenLayersMap = () => {
 				setIsLoading(false);
 			})
 		}
-	}, [baselayer, dataBase, isLoading, type, styleLayer, city, mvt, layer]);
+	}, [dataBase, isLoading, type, styleLayer, city, mvt, layer]);
 
 	const view = new View({
 		center: granada,
@@ -120,643 +119,643 @@ const OpenLayersMap = () => {
 		},
 	  });
 
-	  const vectorBaseLayer = new VectorTileLayer({
-		declutter: true,
-		source: new VectorTileSource({
-		  format: new MVT(),
-		  url:
-		  'https://api.mapbox.com/v4/gis4tech-anda-ugr.' + city + mvt + '/' + 
-		  '{z}/{x}/{y}.vector.pbf?access_token=' + key
-		}),
-		style: function (feature) {
-			const value = feature.get(baselayer);
-			if ( type === 'Polygon') {
-				if (baselayer === 'Esp_Verdes' && value === 'BASE_I13_EspaciosLibres_GR') {
-					const item = dataBase?.[type][baselayer][0]; 
-					style.getFill().setColor(item.fill);
-					style.getStroke().setWidth(item.width);
-					style.getStroke().setColor(item.color);
-				}	
-				else if (dataBase && dataBase[type][baselayer]) {
-					const item = dataBase?.[type][baselayer].find(
-						(i:any) => value >= i.minValue && value <= i.maxValue
-					);
-				if (item) {
-					style.getFill().setColor(item.fill);
-					style.getStroke().setWidth(item.width);
-					style.getStroke().setColor(item.color);
-				} else {
-					style.getFill().setColor('rgba(0, 0, 0, 0)');
-					style.getStroke().setWidth(0);
-					style.getStroke().setColor("rgba(0,0,0,0)");
-				}
-				return style;
-				}
-				return style;
-			} else if (type === 'Polyline') {
-				if (baselayer === 'PRD_TIPO' && value === 'PRD') {
-					const item = dataBase?.[type][baselayer][0]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}	
+	//   const vectorBaseLayer = new VectorTileLayer({
+	// 	declutter: true,
+	// 	source: new VectorTileSource({
+	// 	  format: new MVT(),
+	// 	  url:
+	// 	  'https://api.mapbox.com/v4/gis4tech-anda-ugr.' + city + mvt + '/' + 
+	// 	  '{z}/{x}/{y}.vector.pbf?access_token=' + key
+	// 	}),
+	// 	style: function (feature) {
+	// 		const value = feature.get(baselayer);
+	// 		if ( type === 'Polygon') {
+	// 			if (baselayer === 'Esp_Verdes' && value === 'BASE_I13_EspaciosLibres_GR') {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 				style.getFill().setColor(item.fill);
+	// 				style.getStroke().setWidth(item.width);
+	// 				style.getStroke().setColor(item.color);
+	// 			}	
+	// 			else if (dataBase && dataBase[type][baselayer]) {
+	// 				const item = dataBase?.[type][baselayer].find(
+	// 					(i:any) => value >= i.minValue && value <= i.maxValue
+	// 				);
+	// 			if (item) {
+	// 				style.getFill().setColor(item.fill);
+	// 				style.getStroke().setWidth(item.width);
+	// 				style.getStroke().setColor(item.color);
+	// 			} else {
+	// 				style.getFill().setColor('rgba(0, 0, 0, 0)');
+	// 				style.getStroke().setWidth(0);
+	// 				style.getStroke().setColor("rgba(0,0,0,0)");
+	// 			}
+	// 			return style;
+	// 			}
+	// 			return style;
+	// 		} else if (type === 'Polyline') {
+	// 			if (baselayer === 'PRD_TIPO' && value === 'PRD') {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}	
 				
-				else if (baselayer === 'ACCESO_BICI_TIPO' && value === 'ACCESOBICI') {
-					const item = dataBase?.[type][baselayer][0]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (baselayer === 'INTERMODALIDAD_TIPO' && value === 'INTERMODAL') {
-					const item = dataBase?.[type][baselayer][0]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (baselayer === 'RUTAS_COLEGIOS_TIPO' && value === 'RUTASEDUC') {
-					const item = dataBase?.[type][baselayer][0]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (baselayer === 'MODOTPTE' && value === 'ANDA') {
-					const item = dataBase?.[type][baselayer][0]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (baselayer === 'MODOTPTE' && value === 'BICI') {
-					const item = dataBase?.[type][baselayer][1]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (baselayer === 'MODOTPTE' && value === 'TP') {
-					const item = dataBase?.[type][baselayer][2]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (baselayer === 'MODOTPTE' && value === 'OTRO') {
-					const item = dataBase?.[type][baselayer][3]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (baselayer === 'MODOTPTE' && value === 'COCHE/MOTO') {
-					const item = dataBase?.[type][baselayer][4]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (baselayer === 'CONTINUIDAD_TIPO' && value === 'CONTINUIDA') {
-					const item = dataBase?.[type][baselayer][0]; 
-					style.getStroke().setWidth(item.width/2);
-					style.getStroke().setColor(item.color);
-					return style;
-				}
-				else if (dataBase && dataBase[type][baselayer]) {
-					const item = dataBase?.[type][baselayer].find(
-					(i:any) => value >= i.minValue && value <= i.maxValue
-					);
-					if (item) {
-						style.getStroke().setWidth(item.width/2);
-						style.getStroke().setColor(item.color);
-					} else {
-						style.getStroke().setWidth(0);
-						style.getStroke().setColor("rgba(0,0,0,0)");
-					}
-					return style;
-				}
-				return style;
+	// 			else if (baselayer === 'ACCESO_BICI_TIPO' && value === 'ACCESOBICI') {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (baselayer === 'INTERMODALIDAD_TIPO' && value === 'INTERMODAL') {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (baselayer === 'RUTAS_COLEGIOS_TIPO' && value === 'RUTASEDUC') {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (baselayer === 'MODOTPTE' && value === 'ANDA') {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (baselayer === 'MODOTPTE' && value === 'BICI') {
+	// 				const item = dataBase?.[type][baselayer][1]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (baselayer === 'MODOTPTE' && value === 'TP') {
+	// 				const item = dataBase?.[type][baselayer][2]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (baselayer === 'MODOTPTE' && value === 'OTRO') {
+	// 				const item = dataBase?.[type][baselayer][3]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (baselayer === 'MODOTPTE' && value === 'COCHE/MOTO') {
+	// 				const item = dataBase?.[type][baselayer][4]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (baselayer === 'CONTINUIDAD_TIPO' && value === 'CONTINUIDA') {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 				style.getStroke().setWidth(item.width/2);
+	// 				style.getStroke().setColor(item.color);
+	// 				return style;
+	// 			}
+	// 			else if (dataBase && dataBase[type][baselayer]) {
+	// 				const item = dataBase?.[type][baselayer].find(
+	// 				(i:any) => value >= i.minValue && value <= i.maxValue
+	// 				);
+	// 				if (item) {
+	// 					style.getStroke().setWidth(item.width/2);
+	// 					style.getStroke().setColor(item.color);
+	// 				} else {
+	// 					style.getStroke().setWidth(0);
+	// 					style.getStroke().setColor("rgba(0,0,0,0)");
+	// 				}
+	// 				return style;
+	// 			}
+	// 			return style;
 
-			} else if (type === 'Point') {
-                if (baselayer === 'TRAF_UNI' && value === 0) {
-					const item = dataBase?.[type][baselayer][0]; 
-				if (item) {
-						style = new Style({
-							stroke: new Stroke({
-								lineCap: "round",
-								lineJoin: "round",
-							}),
-							fill: new Fill({
-								color: 'rgba(255, 255, 255, 0.6)',
-							}),
-							image: new CircleStyle({
-								radius: item.radius,
-								fill: new Fill({
-									color: item.color,
-								}),
-								stroke: new Stroke({
-									color: item.color,
-									width: 1,
-								}),
-							}),
-						});
+	// 		} else if (type === 'Point') {
+    //             if (baselayer === 'TRAF_UNI' && value === 0) {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 			if (item) {
+	// 					style = new Style({
+	// 						stroke: new Stroke({
+	// 							lineCap: "round",
+	// 							lineJoin: "round",
+	// 						}),
+	// 						fill: new Fill({
+	// 							color: 'rgba(255, 255, 255, 0.6)',
+	// 						}),
+	// 						image: new CircleStyle({
+	// 							radius: item.radius,
+	// 							fill: new Fill({
+	// 								color: item.color,
+	// 							}),
+	// 							stroke: new Stroke({
+	// 								color: item.color,
+	// 								width: 1,
+	// 							}),
+	// 						}),
+	// 					});
 						
-					}
+	// 				}
 
-					else{
-						style = new Style({}); 
+	// 				else{
+	// 					style = new Style({}); 
 						
-					}
-                    return style;
-                }
+	// 				}
+    //                 return style;
+    //             }
 				
-                else if (baselayer === 'TRAF_UNI' && value === 0.5) {
-					const item = dataBase?.[type][baselayer][1]; 
-				if (item) {
-						style = new Style({
-							stroke: new Stroke({
-								lineCap: "round",
-								lineJoin: "round",
-							}),
-							fill: new Fill({
-								color: 'rgba(255, 255, 255, 0.6)',
-							}),
-							image: new CircleStyle({
-								radius: item.radius,
-								fill: new Fill({
-									color: item.color,
-								}),
-								stroke: new Stroke({
-									color: item.color,
-									width: 1,
-								}),
-							}),
-						});
+    //             else if (baselayer === 'TRAF_UNI' && value === 0.5) {
+	// 				const item = dataBase?.[type][baselayer][1]; 
+	// 			if (item) {
+	// 					style = new Style({
+	// 						stroke: new Stroke({
+	// 							lineCap: "round",
+	// 							lineJoin: "round",
+	// 						}),
+	// 						fill: new Fill({
+	// 							color: 'rgba(255, 255, 255, 0.6)',
+	// 						}),
+	// 						image: new CircleStyle({
+	// 							radius: item.radius,
+	// 							fill: new Fill({
+	// 								color: item.color,
+	// 							}),
+	// 							stroke: new Stroke({
+	// 								color: item.color,
+	// 								width: 1,
+	// 							}),
+	// 						}),
+	// 					});
 						
-					}
-					else{
-						style = new Style({}); 
+	// 				}
+	// 				else{
+	// 					style = new Style({}); 
 						
-					}
-                    return style;
-                }
-				else if (baselayer === 'TRAF_UNI' && value === 1) {
-					const item = dataBase?.[type][baselayer][2]; 
-				if (item) {
-						style = new Style({
-							stroke: new Stroke({
-								lineCap: "round",
-								lineJoin: "round",
-							}),
-							fill: new Fill({
-								color: 'rgba(255, 255, 255, 0.6)',
-							}),
-							image: new CircleStyle({
-								radius: item.radius,
-								fill: new Fill({
-									color: item.color,
-								}),
-								stroke: new Stroke({
-									color: item.color,
-									width: 1,
-								}),
-							}),
-						});
+	// 				}
+    //                 return style;
+    //             }
+	// 			else if (baselayer === 'TRAF_UNI' && value === 1) {
+	// 				const item = dataBase?.[type][baselayer][2]; 
+	// 			if (item) {
+	// 					style = new Style({
+	// 						stroke: new Stroke({
+	// 							lineCap: "round",
+	// 							lineJoin: "round",
+	// 						}),
+	// 						fill: new Fill({
+	// 							color: 'rgba(255, 255, 255, 0.6)',
+	// 						}),
+	// 						image: new CircleStyle({
+	// 							radius: item.radius,
+	// 							fill: new Fill({
+	// 								color: item.color,
+	// 							}),
+	// 							stroke: new Stroke({
+	// 								color: item.color,
+	// 								width: 1,
+	// 							}),
+	// 						}),
+	// 					});
 						
-					}
-					else{
-						style = new Style({}); 
+	// 				}
+	// 				else{
+	// 					style = new Style({}); 
 						
-					}
-                    return style;
-                }
-                else if (baselayer === 'n_cruces' && value === 3.5) {
-					const item = dataBase?.[type][baselayer][0]; 
-				if (item) {
-						style = new Style({
-							stroke: new Stroke({
-								lineCap: "round",
-								lineJoin: "round",
-							}),
-							fill: new Fill({
-								color: 'rgba(255, 255, 255, 0.6)',
-							}),
-							image: new CircleStyle({
-								radius: item.radius,
-								fill: new Fill({
-									color: item.color,
-								}),
-								stroke: new Stroke({
-									color: item.color,
-									width: 1,
-								}),
-							}),
-						});
+	// 				}
+    //                 return style;
+    //             }
+    //             else if (baselayer === 'n_cruces' && value === 3.5) {
+	// 				const item = dataBase?.[type][baselayer][0]; 
+	// 			if (item) {
+	// 					style = new Style({
+	// 						stroke: new Stroke({
+	// 							lineCap: "round",
+	// 							lineJoin: "round",
+	// 						}),
+	// 						fill: new Fill({
+	// 							color: 'rgba(255, 255, 255, 0.6)',
+	// 						}),
+	// 						image: new CircleStyle({
+	// 							radius: item.radius,
+	// 							fill: new Fill({
+	// 								color: item.color,
+	// 							}),
+	// 							stroke: new Stroke({
+	// 								color: item.color,
+	// 								width: 1,
+	// 							}),
+	// 						}),
+	// 					});
 						
-					}
-					else{
-						style = new Style({}); 
+	// 				}
+	// 				else{
+	// 					style = new Style({}); 
 						
-					}
-                    return style;
-                }
-                else if (baselayer === 'n_cruces' && value === 4) {
-					const item = dataBase?.[type][baselayer][1]; 
-				if (item) {
-						style = new Style({
-							stroke: new Stroke({
-								lineCap: "round",
-								lineJoin: "round",
-							}),
-							fill: new Fill({
-								color: 'rgba(255, 255, 255, 0.6)',
-							}),
-							image: new CircleStyle({
-								radius: item.radius,
-								fill: new Fill({
-									color: item.color,
-								}),
-								stroke: new Stroke({
-									color: item.color,
-									width: 1,
-								}),
-							}),
-						});
+	// 				}
+    //                 return style;
+    //             }
+    //             else if (baselayer === 'n_cruces' && value === 4) {
+	// 				const item = dataBase?.[type][baselayer][1]; 
+	// 			if (item) {
+	// 					style = new Style({
+	// 						stroke: new Stroke({
+	// 							lineCap: "round",
+	// 							lineJoin: "round",
+	// 						}),
+	// 						fill: new Fill({
+	// 							color: 'rgba(255, 255, 255, 0.6)',
+	// 						}),
+	// 						image: new CircleStyle({
+	// 							radius: item.radius,
+	// 							fill: new Fill({
+	// 								color: item.color,
+	// 							}),
+	// 							stroke: new Stroke({
+	// 								color: item.color,
+	// 								width: 1,
+	// 							}),
+	// 						}),
+	// 					});
 						
-					}
-					else{
-						style = new Style({}); 
+	// 				}
+	// 				else{
+	// 					style = new Style({}); 
 						
-					}
-                    return style;
-                }
-                else if (baselayer === 'n_cruces' && value === 5) {
-					const item = dataBase?.[type][baselayer][2]; 
-				if (item) {
-						style = new Style({
-							stroke: new Stroke({
-								lineCap: "round",
-								lineJoin: "round",
-							}),
-							fill: new Fill({
-								color: 'rgba(255, 255, 255, 0.6)',
-							}),
-							image: new CircleStyle({
-								radius: item.radius,
-								fill: new Fill({
-									color: item.color,
-								}),
-								stroke: new Stroke({
-									color: item.color,
-									width: 1,
-								}),
-							}),
-						});
+	// 				}
+    //                 return style;
+    //             }
+    //             else if (baselayer === 'n_cruces' && value === 5) {
+	// 				const item = dataBase?.[type][baselayer][2]; 
+	// 			if (item) {
+	// 					style = new Style({
+	// 						stroke: new Stroke({
+	// 							lineCap: "round",
+	// 							lineJoin: "round",
+	// 						}),
+	// 						fill: new Fill({
+	// 							color: 'rgba(255, 255, 255, 0.6)',
+	// 						}),
+	// 						image: new CircleStyle({
+	// 							radius: item.radius,
+	// 							fill: new Fill({
+	// 								color: item.color,
+	// 							}),
+	// 							stroke: new Stroke({
+	// 								color: item.color,
+	// 								width: 1,
+	// 							}),
+	// 						}),
+	// 					});
 						
-					}
-					else{
-						style = new Style({}); 
+	// 				}
+	// 				else{
+	// 					style = new Style({}); 
 						
-					}
-                    return style;
-                }
-                else if (baselayer === 'n_cruces' && value === 6) {
-					const item = dataBase?.[type][baselayer][3]; 
-				if (item) {
-						style = new Style({
-							stroke: new Stroke({
-								lineCap: "round",
-								lineJoin: "round",
-							}),
-							fill: new Fill({
-								color: 'rgba(255, 255, 255, 0.6)',
-							}),
-							image: new CircleStyle({
-								radius: item.radius,
-								fill: new Fill({
-									color: item.color,
-								}),
-								stroke: new Stroke({
-									color: item.color,
-									width: 1,
-								}),
-							}),
-						});
+	// 				}
+    //                 return style;
+    //             }
+    //             else if (baselayer === 'n_cruces' && value === 6) {
+	// 				const item = dataBase?.[type][baselayer][3]; 
+	// 			if (item) {
+	// 					style = new Style({
+	// 						stroke: new Stroke({
+	// 							lineCap: "round",
+	// 							lineJoin: "round",
+	// 						}),
+	// 						fill: new Fill({
+	// 							color: 'rgba(255, 255, 255, 0.6)',
+	// 						}),
+	// 						image: new CircleStyle({
+	// 							radius: item.radius,
+	// 							fill: new Fill({
+	// 								color: item.color,
+	// 							}),
+	// 							stroke: new Stroke({
+	// 								color: item.color,
+	// 								width: 1,
+	// 							}),
+	// 						}),
+	// 					});
 						
-					}
-					else{
-						style = new Style({}); 
+	// 				}
+	// 				else{
+	// 					style = new Style({}); 
 						
-					}
-                    return style;
-                }
-                else if (baselayer === 'ESTAC_BICI_TIPO' && value === 'ESTACBICI') {
-                        const item = dataBase?.[type][baselayer][0]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+	// 				}
+    //                 return style;
+    //             }
+    //             else if (baselayer === 'ESTAC_BICI_TIPO' && value === 'ESTACBICI') {
+    //                     const item = dataBase?.[type][baselayer][0]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'TAXIS_TIPO' && value === 'INTERMODAL') {
-                        const item = dataBase?.[type][baselayer][0]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'TAXIS_TIPO' && value === 'INTERMODAL') {
+    //                     const item = dataBase?.[type][baselayer][0]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'PARADAS_TPTE_TIPO' && value === 'Parada de metro') {
-                        const item = dataBase?.[type][baselayer][0]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'PARADAS_TPTE_TIPO' && value === 'Parada de metro') {
+    //                     const item = dataBase?.[type][baselayer][0]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'PARADAS_TPTE_TIPO' && value === 'Paradas de bus') {
-                        const item = dataBase?.[type][baselayer][1]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'PARADAS_TPTE_TIPO' && value === 'Paradas de bus') {
+    //                     const item = dataBase?.[type][baselayer][1]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'CENTROS_EMPLEO_TIPO' && value === 'CENTROSEMP') {
-                        const item = dataBase?.[type][baselayer][0]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'CENTROS_EMPLEO_TIPO' && value === 'CENTROSEMP') {
+    //                     const item = dataBase?.[type][baselayer][0]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'CENTROS_EDUCATIVOS_TIPO' && value === 'Centro de Educación Infantil') {
-                        const item = dataBase?.[type][baselayer][0]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'CENTROS_EDUCATIVOS_TIPO' && value === 'Centro de Educación Infantil') {
+    //                     const item = dataBase?.[type][baselayer][0]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'CENTROS_EDUCATIVOS_TIPO' && value === 'Centro Docente Privado') {
-                        const item = dataBase?.[type][baselayer][1]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'CENTROS_EDUCATIVOS_TIPO' && value === 'Centro Docente Privado') {
+    //                     const item = dataBase?.[type][baselayer][1]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'CENTROS_EDUCATIVOS_TIPO' && value === 'Colegio de Educación Infantil y Primaria') {
-                        const item = dataBase?.[type][baselayer][2]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'CENTROS_EDUCATIVOS_TIPO' && value === 'Colegio de Educación Infantil y Primaria') {
+    //                     const item = dataBase?.[type][baselayer][2]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'CENTROS_EDUCATIVOS_TIPO' && value === 'Escuela Infantil') {
-                        const item = dataBase?.[type][baselayer][3]; 
-                if (item) {
-                            style = new Style({
-                                stroke: new Stroke({
-                                    lineCap: "round",
-                                    lineJoin: "round",
-                                }),
-                                fill: new Fill({
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                }),
-                                image: new CircleStyle({
-                                    radius: item.radius,
-                                    fill: new Fill({
-                                        color: item.color,
-                                    }),
-                                    stroke: new Stroke({
-                                        color: item.color,
-                                        width: 1,
-                                    }),
-                                }),
-                            });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'CENTROS_EDUCATIVOS_TIPO' && value === 'Escuela Infantil') {
+    //                     const item = dataBase?.[type][baselayer][3]; 
+    //             if (item) {
+    //                         style = new Style({
+    //                             stroke: new Stroke({
+    //                                 lineCap: "round",
+    //                                 lineJoin: "round",
+    //                             }),
+    //                             fill: new Fill({
+    //                                 color: 'rgba(255, 255, 255, 0.6)',
+    //                             }),
+    //                             image: new CircleStyle({
+    //                                 radius: item.radius,
+    //                                 fill: new Fill({
+    //                                     color: item.color,
+    //                                 }),
+    //                                 stroke: new Stroke({
+    //                                     color: item.color,
+    //                                     width: 1,
+    //                                 }),
+    //                             }),
+    //                         });
                             
-                        }
+    //                     }
 
-                        else{
-                            style = new Style({}); 
+    //                     else{
+    //                         style = new Style({}); 
                             
-                        }
-                        return style;
-                    }
-                    else if (baselayer === 'MERCADOS_TIPO' && value === 'LOCALES') {
-                            const item = dataBase?.[type][baselayer][0]; 
-                if (item) {
-                                style = new Style({
-                                    stroke: new Stroke({
-                                        lineCap: "round",
-                                        lineJoin: "round",
-                                    }),
-                                    fill: new Fill({
-                                        color: 'rgba(255, 255, 255, 0.6)',
-                                    }),
-                                    image: new CircleStyle({
-                                        radius: item.radius,
-                                        fill: new Fill({
-                                            color: item.color,
-                                        }),
-                                        stroke: new Stroke({
-                                            color: item.color,
-                                            width: 1,
-                                        }),
-                                    }),
-                                });
+    //                     }
+    //                     return style;
+    //                 }
+    //                 else if (baselayer === 'MERCADOS_TIPO' && value === 'LOCALES') {
+    //                         const item = dataBase?.[type][baselayer][0]; 
+    //             if (item) {
+    //                             style = new Style({
+    //                                 stroke: new Stroke({
+    //                                     lineCap: "round",
+    //                                     lineJoin: "round",
+    //                                 }),
+    //                                 fill: new Fill({
+    //                                     color: 'rgba(255, 255, 255, 0.6)',
+    //                                 }),
+    //                                 image: new CircleStyle({
+    //                                     radius: item.radius,
+    //                                     fill: new Fill({
+    //                                         color: item.color,
+    //                                     }),
+    //                                     stroke: new Stroke({
+    //                                         color: item.color,
+    //                                         width: 1,
+    //                                     }),
+    //                                 }),
+    //                             });
                                 
-                            }
-                            else{
-                                style = new Style({}); 
+    //                         }
+    //                         else{
+    //                             style = new Style({}); 
                                 
-                            }
-                            return style;
-                        }
+    //                         }
+    //                         return style;
+    //                     }
 
-		}
+	// 	}
 
-	}
-	});
+	// }
+	// });
 
 	// Base map
 	const BaseMap = new TileLayer({
@@ -780,7 +779,7 @@ const OpenLayersMap = () => {
 
         const map = new Map({
 			target: node,
-            layers:[BaseMap,vectorBaseLayer,vectorLayerLine],
+            layers:[BaseMap,vectorLayerLine],
             view: view,
 			controls: defaultControls().extend([scaleControl]),
         });
@@ -826,7 +825,7 @@ const OpenLayersMap = () => {
 		return () => {
 			map.setTarget();
 		  };
-	}, [layer, basemap, baselayer, mvt, styleLayer, city]);
+	}, [layer, basemap, mvt, styleLayer, city]);
 
 	return (
 		<div ref={mapNode} style={{ width: "100%", height: "100%", position: 'fixed', top: '50px', left: '0px' }}>

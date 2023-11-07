@@ -12,7 +12,6 @@ import LeaderboardTwoToneIcon from "@mui/icons-material/LeaderboardTwoTone";
 // Componentes personalizados
 import VectorChart from "../../charts/VectorChart";
 import Leyend from "../Leyend/Leyend";
-import BaseLayerLeyend from "../Leyend/BaseLayerLeyend";
 
 const drawerBleeding = 0;
 
@@ -98,7 +97,6 @@ export default function SwipeableEdgeDrawer(props: Props) {
       {/* Componentes de leyendas */}
       <Box sx={{ display: "flex", justifyContent: "right" }}>
         <Leyend />
-        <BaseLayerLeyend />
       </Box>
       {/* Componente SwipeableDrawer que muestra las gráficas */}
       <SwipeableDrawer
