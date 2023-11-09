@@ -16,7 +16,7 @@ type State = {
 
 const indicatorTitles: Record<string, string> = {
   Blanco: 'Blanco',
-<optgroup label="Puntos">
+  Comunidades Autonomas: 'Comunidades Autónomas',
   Densidad_Res: 'DenPrueba',
   NivelS_Origen: 'Nivel socioecónomico bruto en origen',
   NivelS_Ruta: 'Nivel socioeconómico bruto medio en la ruta',
