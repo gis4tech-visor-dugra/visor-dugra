@@ -26,7 +26,7 @@ import {fromLonLat} from 'ol/proj';
 // Add Mapbox key
 const key = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-const granada = fromLonLat([-3.5975104462119347, 37.17581573526736]);
+const espana = fromLonLat([-11.5, 34.5]);
 
 let style = new Style({
     stroke: new Stroke({
@@ -74,9 +74,9 @@ const OpenLayersMap = () => {
 	}, [dataBase, isLoading, type, styleLayer, city, mvt, layer]);
 
 	const view = new View({
-		center: granada,
-		zoom: 14,
-		minZoom: 12,
+		center: espana,
+		zoom: 4,
+		minZoom: 3,
 	});
 
 	  const vectorLayerLine = new VectorTileLayer({

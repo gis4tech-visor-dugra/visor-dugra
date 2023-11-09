@@ -11,12 +11,12 @@ import TabPanel from '@mui/lab/TabPanel';
 import Typography from '@mui/material/Typography';
 
 import Sponsor from '../components/Sponsor';
-import Info from '../components/Info';
+//import Info from '../components/Info';
 import Developer from '../components/Developer';
 import CardInfo from '../components/CardInfo';
 //import DownloadButton from '../components/Download/DownloadButton';
 
-const MapGranada = dynamic(() => import('../components/MapGranada/Map'), {
+const Map = dynamic(() => import('../components/Map/Map'), {
   ssr: false
 });
 
@@ -55,7 +55,6 @@ export default function App() {
           </TabList>
         </Box>
         <TabPanel value="Granada">
-          < MapGranada />
         </TabPanel>
         <TabPanel value="Malaga">
           < MapMalaga />
@@ -64,7 +63,6 @@ export default function App() {
       <div style={{ position:'absolute', top:'10px', right:'300px' }} >
         <div style={{ display:'flex', justifyContent:'center', alignItems:'center' }}>
           <Typography><b>{title} ({units})</b></Typography>
-          <Info />
         </div>
       </div>
       <div style={{ position:'absolute', top:'0px', right:'20px' }} >
