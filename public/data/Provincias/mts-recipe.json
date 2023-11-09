@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "layers": {
+    "PR": {
+      "source": "mapbox://tileset-source/gis4tech-visor-dugra/PR-src",
+      "minzoom": 0,
+      "maxzoom": 5
+    }
+  }
+}

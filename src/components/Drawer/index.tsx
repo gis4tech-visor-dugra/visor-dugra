@@ -10,7 +10,7 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import LeaderboardTwoToneIcon from "@mui/icons-material/LeaderboardTwoTone";
 
 // Componentes personalizados
-import VectorChart from "../../charts/VectorChart";
+//import VectorChart from "../../charts/VectorChart";
 import Leyend from "../Leyend/Leyend";
 
 const drawerBleeding = 0;
@@ -120,7 +120,6 @@ export default function SwipeableEdgeDrawer(props: Props) {
           }}
         >
           <Box sx={{ pt: 2 }}>
-            <VectorChart />
           </Box>
         </StyledBox>
       </SwipeableDrawer>
