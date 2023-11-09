@@ -54,6 +54,7 @@ export default function App() {
           </TabList>
         </Box>
         <TabPanel value="Granada">
+        < Map />
         </TabPanel>
       </TabContext>
       <div style={{ position:'absolute', top:'10px', right:'300px' }} >
