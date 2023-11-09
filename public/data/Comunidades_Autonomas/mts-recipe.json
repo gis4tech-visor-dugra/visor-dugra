@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "layers": {
+    "CA": {
+      "source": "mapbox://tileset-source/gis4tech-visor-dugra/CA-src",
+      "minzoom": 3,
+      "maxzoom": 5
+    }
+  }
+}
