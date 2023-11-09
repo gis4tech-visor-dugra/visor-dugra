@@ -19,18 +19,18 @@ export default function BasicSelect() {
     setBaselayer(select.value as string);
     setMvt(select.value as string);
     let mvtUrl = "";
-    if (select.options[select.selectedIndex].parentNode.label === "Puntos") {
+    if (select.options[select.selectedIndex].parentNode.label === "Comunidades Autónomas") {
       mvtUrl = "_Base_Puntos"
-      dispatch(getType('Point'));
-    } else if (select.options[select.selectedIndex].parentNode.label === "Polilíneas") {
-      mvtUrl = "_Base_Polilineas"
-      dispatch(getType('Polyline'));
-    } else if (select.options[select.selectedIndex].parentNode.label === "Polígonos") {
-      mvtUrl = "_Base_Poligonos"
-      dispatch(getType('Polygon'));
-    }
-    dispatch(getMvt(mvtUrl));
-    dispatch(getBaseLayer(event.target.value as string));
+      dispatch(getLayer('Comunidades_Autonomas'));
+    // } else if (select.options[select.selectedIndex].parentNode.label === "Polilíneas") {
+    //   mvtUrl = "_Base_Polilineas"
+    //   dispatch(getLayer('Polyline'));
+    // } else if (select.options[select.selectedIndex].parentNode.label === "Polígonos") {
+    //   mvtUrl = "_Base_Poligonos"
+    //   dispatch(getLayer('Polygon'));
+    // }
+    // dispatch(getMvt(mvtUrl));
+    // dispatch(getBaseLayer(event.target.value as string));
   };
 
   return (
@@ -50,7 +50,7 @@ export default function BasicSelect() {
         >
           <option aria-label="None" value="" />
             <option value={" "}>Blanco</option>
-          <optgroup label="Puntos">
+          <optgroup label="Comunidades Autónomas">
             <option value={"TRAF_UNI"}>Cruces de 2 calles</option>
             <option value={"n_cruces"}>Cruces de 4 calles</option>
             <option value={"ESTAC_BICI_TIPO"}>Estacionamiento de bicicleta</option>
