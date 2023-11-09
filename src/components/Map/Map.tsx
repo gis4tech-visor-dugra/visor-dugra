@@ -26,7 +26,7 @@ import {fromLonLat} from 'ol/proj';
 // Add Mapbox key
 const key = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-const granada = fromLonLat([-11.5, 34.5]);
+const granada = fromLonLat([-3.5975104462119347, 37.17581573526736]);
 
 let style = new Style({
     stroke: new Stroke({
