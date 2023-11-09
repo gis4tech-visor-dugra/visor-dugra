@@ -75,8 +75,8 @@ const OpenLayersMap = () => {
 
 	const view = new View({
 		center: granada,
-		zoom: 4,
-		minZoom: 3,
+		zoom: 6,
+		minZoom: 4,
 	});
 
 	  const vectorLayerLine = new VectorTileLayer({
