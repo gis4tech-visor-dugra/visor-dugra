@@ -19,9 +19,7 @@ export default function BasicSelect() {
     setBaselayer(select.value as string);
     setMvt(select.value as string);
     let mvtUrl = "";
-    if (select.options[select.selectedIndex].parentNode.label === "Puntos") {
-      mvtUrl = "_Base_Puntos"
-      dispatch(getType('Point'));
+    if (select.options[select.selectedIndex].parentNode.label === "Puntos")
     } else if (select.options[select.selectedIndex].parentNode.label === "Polilíneas") {
       mvtUrl = "_Base_Polilineas"
       dispatch(getType('Polyline'));
