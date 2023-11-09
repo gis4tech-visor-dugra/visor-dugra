@@ -55,7 +55,6 @@ export default function App() {
           </TabList>
         </Box>
         <TabPanel value="Granada">
-          < MapGranada />
         </TabPanel>
         <TabPanel value="Malaga">
           < MapMalaga />
