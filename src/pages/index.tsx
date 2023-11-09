@@ -51,13 +51,9 @@ export default function App() {
         <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'center' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab label="Granada" value="Granada" />
-            <Tab label="Málaga" value="Malaga" />
           </TabList>
         </Box>
         <TabPanel value="Granada">
-        </TabPanel>
-        <TabPanel value="Malaga">
-          < MapMalaga />
         </TabPanel>
       </TabContext>
       <div style={{ position:'absolute', top:'10px', right:'300px' }} >
