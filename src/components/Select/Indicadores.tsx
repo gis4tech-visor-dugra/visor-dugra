@@ -21,7 +21,7 @@ export default function BasicSelect() {
     let mvtUrl = "";
     if (select.options[select.selectedIndex].parentNode.label === "Comunidades Autónomas") {
       mvtUrl = "_Base_Puntos"
-      dispatch(getLayer('Comunidades_Autonomas'));
+      dispatch(getLayer('Comunidades_Autonomas'))};
     // } else if (select.options[select.selectedIndex].parentNode.label === "Polilíneas") {
     //   mvtUrl = "_Base_Polilineas"
     //   dispatch(getLayer('Polyline'));
@@ -31,7 +31,7 @@ export default function BasicSelect() {
     // }
     // dispatch(getMvt(mvtUrl));
     // dispatch(getBaseLayer(event.target.value as string));
-  };
+  
 
   return (
     <div>
