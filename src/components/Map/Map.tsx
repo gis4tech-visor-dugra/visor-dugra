@@ -75,7 +75,7 @@ const OpenLayersMap = () => {
 
 	const view = new View({
 		center: granada,
-		zoom: 4,
+		zoom: 5.5,
 		minZoom: 4,
 	});
 
