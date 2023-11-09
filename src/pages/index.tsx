@@ -14,7 +14,7 @@ import Sponsor from '../components/Sponsor';
 import Info from '../components/Info';
 import Developer from '../components/Developer';
 import CardInfo from '../components/CardInfo';
-import DownloadButton from '../components/Download/DownloadButton';
+//import DownloadButton from '../components/Download/DownloadButton';
 
 const MapGranada = dynamic(() => import('../components/MapGranada/Map'), {
   ssr: false
@@ -82,7 +82,6 @@ export default function App() {
         <CardInfo />
         <Select />
         <SelectBasemap />
-        <DownloadButton />
       </Box>
     </Box>
   );
