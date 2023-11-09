@@ -26,7 +26,7 @@ const MapMalaga = dynamic(() => import('../components/MapMalaga/Map'), {
 // Components
 import Select from "../components/Select/Indicadores";
 import SelectBasemap from "../components/Select/BaseMaps";
-import Drawer from "../components/Drawer";
+//import Drawer from "../components/Drawer";
 
 
 export default function App() {
@@ -56,11 +56,9 @@ export default function App() {
         </Box>
         <TabPanel value="Granada">
           < MapGranada />
-          <Drawer />
         </TabPanel>
         <TabPanel value="Malaga">
           < MapMalaga />
-          <Drawer />
         </TabPanel>
       </TabContext>
       <div style={{ position:'absolute', top:'10px', right:'300px' }} >
