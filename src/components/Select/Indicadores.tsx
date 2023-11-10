@@ -16,8 +16,7 @@ type State = {
 
 const indicatorTitles: Record<string, string> = {
   Blanco: 'Blanco',
-  Com: 'Comunidades Autónomas',
-  Densidad_Res: 'Den',
+  Densidad_Res: 'Densidad Residencial',
   NivelS_Origen: 'Nivel socioecónomico bruto en origen',
   NivelS_Ruta: 'Nivel socioeconómico bruto medio en la ruta',
   Pendiente: 'Pendiente',
@@ -121,9 +120,46 @@ export default function BasicSelect() {
           onChange={handleChange}
           style={{ backgroundColor: "#fff", opacity: '100%' }}
         >
-          {Object.entries(indicatorTitles).map(([key, title]) => (
+           <option aria-label="None" value="" />
+            <option value={" "}>Blanco</option>
+          <optgroup label="Puntos">
+            <option value={"TRAF_UNI"}>Cruces de 2 calles</option>
+            <option value={"n_cruces"}>Cruces de 4 calles</option>
+            <option value={"ESTAC_BICI_TIPO"}>Estacionamiento de bicicleta</option>
+            <option value={"TAXIS_TIPO"}>Paradas de taxi</option>
+            <option value={"PARADAS_TPTE_TIPO"}>Paradas de transporte público</option>
+            <option value={"MERCADOS_TIPO"}>Mercados</option>
+            <option value={"CENTROS_EMPLEO_TIPO"}>Centros de empleo</option>
+            <option value={"CENTROS_EDUCATIVOS_TIPO"}>Centros educativos</option>
+
+          </optgroup>
+          <optgroup label="Polilíneas">
+            <option value={"CH"}>Space Syntax (Choice Global)</option>
+            <option value={"CHr400m"}>Space Syntax (Choice 400m)</option>
+            <option value={"CHr800m"}>Space Syntax (Choice 800m)</option>
+            <option value={"INT"}>Space Syntax (Integracion Global)</option>
+            <option value={"INTr400m"}>Space Syntax (Integracion 400m)</option>
+            <option value={"INTr800m"}>Space Syntax (Integracion 800m)</option>
+            <option value={"PRD_TIPO"}>Direccionalidad de rutas peatonales (PRD)</option>
+            <option value={"ACCESO_BICI_TIPO"}>Accesos para bicicleta</option>
+            <option value={"INTERMODALIDAD_TIPO"}>Intermodalidad</option>
+            <option value={"I19_TIPO"}>Peatonalidad y sección</option>
+            <option value={"RUTAS_COLEGIOS_TIPO"}>Rutas hacia los colegios</option>
+            <option value={"MODOTPTE"}>Modo de transporte</option>
+            <option value={"A00_FreqAn"}>Frecuencia</option>
+            <option value={"CONTINUIDAD_TIPO"}>Continuidad</option>
+          </optgroup>
+          <optgroup label="Polígonos">
+            <option value={"Pob_Edific"}>Población por edificio</option>
+            <option value={"RNT_HOG_19"}>Renta bruta media por hogar (€)</option>
+            <option value={"MixedUsesI"}>Índice de usos mixtos por manzana</option>
+            <option value={"NUM_PB_FAC"}>Locales permeables (planta baja)</option>
+            <option value={"Esp_Verdes"}>Espacios verdes</option>
+            
+          </optgroup>
+          {/* {Object.entries(indicatorTitles).map(([key, title]) => (
             <MenuItem key={key} value={key}>{title}</MenuItem>
-          ))}
+          ))} */}
         </Select>
       </FormControl>
     </div>
