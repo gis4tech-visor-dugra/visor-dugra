@@ -8,15 +8,14 @@ import {getLayerStyle} from "../../store/slices/style";
 import { InputLabel, MenuItem, FormControl, Select } from '@mui/material';
 import type { SelectChangeEvent } from '@mui/material/Select';
 
-type State = {
-  city: {
-    name: string;
-  };
-};
+// type State = {
+//   city: {
+//     name: string;
+//   };
+// };
 
 const indicatorTitles: Record<string, string> = {
   Blanco: 'Blanco',
-  Com: 'Comunidades Autónomas',
   Densidad_Res: 'Den',
   NivelS_Origen: 'Nivel socioecónomico bruto en origen',
   NivelS_Ruta: 'Nivel socioeconómico bruto medio en la ruta',
